@@ -410,24 +410,22 @@ class WebServer {
                     }
                 } else if (request.contains("chat?")) {
                     try {
-                        
-                        if (!request.equals("chat?")) {
-                            Map<String, String> query_pairs = new LinkedHashMap<String, String>();
-                            query_pairs = splitQuery(request.replace("chat?", ""));
 
-                            String name = query_pairs.get("name");
-                            String msg = query_pairs.get("msg");
-                            if (name == null || name. isEmpty() || msg == null || msg.isEmpty())
-                                throw new Exception();
-                            String html = String.format("""
-                                    <html>
-                                    <p><strong>%s:</strong> %s</p>
-                                    </html>
-                                            """, name, msg);
-                            FileWriter fileOut = new FileWriter("www/chat.html", true);
-                            fileOut.write(html);
-                            fileOut.close();
-                        }
+                        Map<String, String> query_pairs = new LinkedHashMap<String, String>();
+                        query_pairs = splitQuery(request.replace("chat?", ""));
+
+                        String name = query_pairs.get("name");
+                        String msg = query_pairs.get("msg");
+                        if (name == null || name.isEmpty() || msg == null || msg.isEmpty())
+                            throw new Exception();
+                        String html = String.format("""
+                                <html>
+                                <p><strong>%s:</strong> %s</p>
+                                </html>
+                                        """, name, msg);
+                        FileWriter fileOut = new FileWriter("www/chat.html", true);
+                        fileOut.write(html);
+                        fileOut.close();
 
                         FileReader fileIn = new FileReader("www/chat.html");
                         String chat = "";
