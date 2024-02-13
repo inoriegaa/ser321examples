@@ -5,9 +5,22 @@
 	<body>
 		<h3>You can make the following GET requests<h3>
 		<ul>
-			<li>/file/sample.html -- returns the content of the file sample.html</li>
-			<li>/json -- returns a json of the /random request</a></li>
-			<li>/random -- returns index.html</a></li>
+			<li>/file/sample.html -- returns the content of the file sample.html</li><br>
+			<li>/json -- returns a json of the /random request</a></li><br>
+			<li>/random -- returns index.html</a></li><br>
+			<li>/multiply?num=X&num2=Y -- returns the product of integers X and Y<br>
+				Example: /multiply?num1=21&num2=2
+			</li><br>
+			<li>/github?query=users/USER/repos -- returns the USER's list of GitHub repos<br>
+				Example: /github?query=users/amehlhase316/repos
+			</li><br>
+			<li>/compatible?name1=X&name2=Y -- return the compatibility between person X and person Y<br>
+				Example: /compatible?name1=Romeo&name2=Juliet
+			</li><br>
+			<li>/chat?name=X&msg=Y -- return a chat log and appends person X's message Y<br>
+				Example: /chat?name=Test&msg=This is a test<br>
+				Example: /chat? -- returns chat log without appended new entry
+			</li><br>
 		</ul>
 		<h3>File Structure in www (you can use /file/www/FILENAME):</h3>
 		${links}
